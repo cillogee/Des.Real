@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>the gaff</title>
+
+  <style>
+    /* Basic clean styling */
+    body { font-family: Arial, sans-serif; margin: 0; background: #f6f6f6; color: #111; }
+    header { background: #111; color: #fff; padding: 28px 18px; }
+    header h1 { margin: 0 0 8px; }
+    header p { margin: 0; opacity: 0.85; }
+
+    nav { background: #222; padding: 10px 18px; }
+    nav a { color: #fff; text-decoration: none; margin-right: 14px; opacity: 0.9; }
+    nav a:hover { opacity: 1; text-decoration: underline; }
+
+    .wrap { max-width: 960px; margin: 0 auto; padding: 18px; }
+    .card { background: #fff; border-radius: 10px; padding: 18px; margin: 18px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+
+    footer { text-align: center; padding: 22px; opacity: 0.7; }
+    textarea { width: 100%; min-height: 120px; padding: 10px; border-radius: 8px; border: 1px solid #ccc; }
+    button { padding: 10px 14px; border: 0; border-radius: 8px; background: #111; color: #fff; cursor: pointer; }
+    button:hover { opacity: 0.9; }
+  </style>
+</head>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs@4/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("XmsAFvQssaMMqWfvy");
+  })();
+
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm(
+      "service_oneeahe",
+      this
+    ).then(() => {
+      document.getElementById("status").innerText = "Message sent successfully!";
+      this.reset();
+    }, () => {
+      document.getElementById("status").innerText = "Failed to send message.";
+    });
+  });
+</script>
+
+<body>
+  <header>
+    <div class="wrap">
+      <h1><!-- INSERT YOUR TITLE HERE -->Design Realisation</h1>
+      <p><!-- INSERT YOUR SUBTITLE HERE -->Jack Clohessy & Cillian O'Grady</p>
+    </div>
+  </header>
+
+  <nav>
+    <div class="wrap">
+      <a href="#home">About</a>
+      <a href="#about">Catalogue</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <!-- HOME -->
+    <section id="About" class="card">
+      <h2><!-- INSERT SECTION HEADING HERE -->About</h2>
+      <p><!-- INSERT YOUR TEXT HERE -->
+        Fre occupied Biddy's from Cavan rule.
+      </p>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="Catalogue" class="card">
+      <h2>Catalogue</h2>
+      <p><!-- INSERT YOUR TEXT HERE -->
+        PPE
+      </p>
+    </section>
+
+    <!-- CONTACT -->
+   <section id="contact" class="card">
+  <h2>Contact</h2>
+
+  <form id="contact-form">
+    <input type="text" name="from_name" placeholder="Your name" required>
+    <br><br>
+    <input type="email" name="reply_to" placeholder="Your email" required>
+    <br><br>
+    <textarea name="message" placeholder="Your message" required></textarea>
+    <br><br>
+    <button type="submit">Send</button>
+  </form>
+
+  <p id="status"></p>
+</section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <!-- INSERT YOUR TEXT HERE -->© 2026 Clohessy-O'Grady Enterprises. Absolutely no rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Simple button action (no internet needed)
+    function showMessage() {
+      const text = document.getElementById("msg").value.trim();
+      const out = document.getElementById("output");
+      if (!text) {
+        out.textContent = "Please type a message first.";
+        return;
+      }
+      out.textContent = "Received: " + text;
+      document.getElementById("msg").value = "";
+    }
+  </script>
+</body>
+</html>
