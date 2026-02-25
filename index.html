@@ -76,15 +76,57 @@ Our mission is to support student learning while reinvesting proceeds into impro
     <section id="Catalogue" class="card">
       <h2>Catalogue</h2>
       <p>PPE</p>
-      <label for="waist">Select Waist Size:</label>
-<select id="waist" name="waist">
-  <option value="">--Choose size--</option>
-  <option value="28">28</option>
-  <option value="30">30</option>
-  <option value="32">32</option>
-  <option value="34">34</option>
-  <option value="36">36</option>
+<form id="orderForm">
+
+<label>Name</label>
+<input type="text" id="name" required>
+
+<label>Product</label>
+<select id="product" required>
+
+<option value="">Select product</option>
+
+<option value="Jacket">Jacket</option>
+
+<option value="Hardhat">Hardhat</option>
+
+<option value="Trousers">Trousers</option>
+
+<option value="Safety Glasses">Safety Glasses</option>
+
+<option value="Safety Boots">Safety Boots</option>
+
 </select>
+
+
+<label>Size</label>
+<select id="size" required>
+
+<option value="">Select product first</option>
+
+</select>
+
+
+<label>Quantity</label>
+<select id="quantity">
+
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+
+</select>
+
+
+<button type="submit">Submit Order</button>
+
+<div id="status"></div>
+
+</form>
+
+
+<script src="script.js"></script>
     </section>
 
    <section id="contact" class="card">
@@ -121,13 +163,6 @@ Our mission is to support student learning while reinvesting proceeds into impro
       document.getElementById("msg").value = "";
     }
   </script>
+  <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
