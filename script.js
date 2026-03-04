@@ -42,7 +42,7 @@ document.getElementById("orderForm").addEventListener("submit", async function(e
 
     const order = {
 
-        name: document.getElementById("name").value,
+        name: document.getElementById("email").value,
         product: productSelect.value,
         size: sizeSelect.value,
         quantity: document.getElementById("quantity").value
