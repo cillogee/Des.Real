@@ -1,20 +1,13 @@
-.site-header {
-  width: 100%;
-  padding: 20px 40px;
-  background-color: white;
+.hero {
+  background-color: #101010;
+  min-height: 380px;
   display: flex;
+  justify-content: center;
   align-items: center;
-  border-bottom: 1px solid #e5e5e5;
 }
 
-.logo-link {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-
-.site-logo {
-  height: 60px;
-  width: auto;
-  display: block;
+.main-logo {
+  width: 450px;
+  max-width: 85%;
+  height: auto;
 }
