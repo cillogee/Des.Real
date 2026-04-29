@@ -109,7 +109,7 @@
       waste in practical learning environments.
     </p>
   </section>
-
+  
   <section id="available-ppe">
     <h2>Available PPE</h2>
     <ul>
@@ -121,51 +121,32 @@
     </ul>
   </section>
 
-<label>Name</label>
-<input type="text" id="name" required>
+<section id="catalogue">
+  <h2>Catalogue</h2>
+  <p>PPE</p>
 
-<label>Product</label>
-<select id="product" required>
+  <div class="catalogue-row">
+    <label for="name">Name</label>
+    <input type="text" id="name">
 
-<option value="">Select product</option>
+    <label for="product">Product</label>
+    <select id="product">
+      <option>Select product</option>
+    </select>
 
-<option value="Jacket">Jacket</option>
+    <label for="size">Size</label>
+    <select id="size">
+      <option>Select product first</option>
+    </select>
 
-<option value="Hardhat">Hardhat</option>
+    <label for="quantity">Quantity</label>
+    <select id="quantity">
+      <option>1</option>
+    </select>
 
-<option value="Trousers">Trousers</option>
-
-<option value="Safety Glasses">Safety Glasses</option>
-
-<option value="Safety Boots">Safety Boots</option>
-
-</select>
-
-
-<label>Size</label>
-<select id="size" required>
-
-<option value="">Select product first</option>
-
-</select>
-
-
-<label>Quantity</label>
-<select id="quantity">
-
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-
-</select>
-
-
-<button type="submit">Submit Order</button>
-
-<div id="status"></div>
-
+    <button type="button">Submit Order</button>
+  </div>
+</section>
 </form>
 
 
