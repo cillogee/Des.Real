@@ -3,199 +3,337 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Des.Real</title>
+
+  <title>EquipDrop</title>
 
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; background: #f5f5f5; color: #111; }
-    header { background: #111; color: #fff; padding: 28px 18px; }
-    header h1 { margin: 0 0 8px; }
-    header p { margin: 0; opacity: 0.85; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+      color: #111;
+    }
 
-    nav { background: #222; padding: 10px 18px; }
-    nav a { color: #fff; text-decoration: none; margin-right: 14px; opacity: 0.9; }
-    nav a:hover { opacity: 1; text-decoration: underline; }
+    header {
+      background: #111;
+      color: #fff;
+      padding: 28px 18px;
+      text-align: center;
+    }
 
-    .wrap { max-width: 960px; margin: 0 auto; padding: 18px; }
-    .card { background: #fff; border-radius: 10px; padding: 18px; margin: 18px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
+    .main-logo {
+      max-width: 260px;
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
 
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+    nav {
+      background: #222;
+      padding: 14px 18px;
+      text-align: center;
+    }
 
-    footer { text-align: center; padding: 22px; opacity: 0.7; }
-    textarea { width: 100%; min-height: 120px; padding: 10px; border-radius: 8px; border: 1px solid #ccc; }
-    button { padding: 10px 14px; border: 0; border-radius: 8px; background: #111; color: #fff; cursor: pointer; }
-    button:hover { opacity: 0.9; }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 14px;
+      opacity: 0.9;
+      font-size: 16px;
+    }
+
+    nav a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    .page-container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 28px 18px;
+    }
+
+    .hero {
+      background: #111;
+      color: white;
+      border-radius: 12px;
+      padding: 38px 28px;
+      margin-bottom: 22px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .hero h1 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 42px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      line-height: 1.5;
+      max-width: 760px;
+    }
+
+    section {
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin: 22px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    }
+
+    section h2 {
+      margin-top: 0;
+      font-size: 26px;
+    }
+
+    section p {
+      line-height: 1.55;
+    }
+
+    ol,
+    ul {
+      padding-left: 24px;
+      line-height: 1.6;
+    }
+
+    .catalogue-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input,
+    select,
+    textarea {
+      padding: 8px;
+      font-size: 14px;
+      border-radius: 6px;
+      border: 1px solid #bbb;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 120px;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 10px 14px;
+      border: 0;
+      border-radius: 8px;
+      background: #111;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px;
+      opacity: 0.7;
+    }
+
+    #status {
+      font-weight: bold;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 700px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .catalogue-row {
+        display: block;
+      }
+
+      .catalogue-row label,
+      .catalogue-row input,
+      .catalogue-row select,
+      .catalogue-row button {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+      }
+    }
   </style>
 </head>
 
-<script src="https://cdn.jsdelivr.net/npm/emailjs@4/dist/email.min.js"></script>
-<script>
-  (function() {
-    emailjs.init("XmsAFvQssaMMqWfvy");
-  })();
-
-  document.getElementById("contact-form").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    emailjs.sendForm(
-      "service_oneeahe",
-      this
-    ).then(() => {
-      document.getElementById("status").innerText = "Message sent successfully!";
-      this.reset();
-    }, () => {
-      document.getElementById("status").innerText = "Failed to send message.";
-    });
-  });
-</script>
-
 <body>
+
   <header>
-<section class="wrap">
-  <img 
-    src="equipdropimage.png"
-    alt="EquipDrop logo"
-    class="main-logo"
-  >
-</section>
+    <img 
+      src="equipdropimage.png"
+      alt="EquipDrop logo"
+      class="main-logo"
+    >
   </header>
 
   <nav>
-    <div class="wrap">
-      <a href="#About">About</a>
-      <a href="#Catalogue">Catalogue</a>
-      <a href="#Contact">Contact</a>
-    </div>
+    <a href="#about">About</a>
+    <a href="#how-it-works">How It Works</a>
+    <a href="#catalogue">Catalogue</a>
+    <a href="#sustainability">Sustainability</a>
+    <a href="#contact">Contact</a>
   </nav>
 
-<div class="page-container">
+  <main class="page-container">
 
-  <div class="hero">
-    <h1>EquipDrop</h1>
-    <p>A smart PPE redistribution system designed for students, workshops and practical learning spaces.</p>
-    <p>EquipDrop allows usable PPE to be stored, managed and accessed through a controlled locker system.</p>
-  </div>
+    <div class="hero">
+      <h1>EquipDrop</h1>
+      <p>A smart PPE redistribution system designed for students, workshops and practical learning spaces.</p>
+      <p>EquipDrop allows usable PPE to be stored, managed and accessed through a controlled locker system.</p>
+    </div>
 
-  <section id="about">
-    <h2>About</h2>
-    <p>
-      EquipDrop provides affordable and accessible PPE to students while supporting more responsible use of resources.
-      The platform is designed to reduce unnecessary waste by redistributing PPE that is still usable within an educational setting.
-    </p>
-    <p>
-      The system combines a digital ordering page with a physical locker unit. Once PPE is selected, the user can collect it
-      from a controlled locker compartment using an access code.
-    </p>
-  </section>
-
-  <section id="how-it-works">
-    <h2>How It Works</h2>
-    <ol>
-      <li>Select the PPE item you need from the catalogue.</li>
-      <li>Choose the correct size and quantity.</li>
-      <li>Submit your order through the webpage.</li>
-      <li>An access code is assigned to the correct locker compartment.</li>
-      <li>Enter the code on the keypad to open the locker and collect your PPE.</li>
-    </ol>
-  </section>
-
-  <section id="sustainability">
-    <h2>Sustainability</h2>
-    <p>
-      This project supports SDG 12: Responsible Consumption and Production. By redistributing PPE instead of allowing it
-      to become waste, EquipDrop helps extend the lifecycle of materials and supports circular economy thinking.
-    </p>
-    <p>
-      The system encourages students to take only what they need, reuse available resources and think more carefully about
-      waste in practical learning environments.
-    </p>
-  </section>
-  
-  <section id="available-ppe">
-    <h2>Available PPE</h2>
-    <ul>
-      <li>Hard hats</li>
-      <li>Safety glasses</li>
-      <li>Safety jackets</li>
-      <li>Protective trousers</li>
-      <li>Safety boots</li>
-    </ul>
-  </section>
-
-<section id="catalogue">
-  <h2>Catalogue</h2>
-  <p>PPE</p>
-
-  <div class="catalogue-row">
-    <label for="name">Name</label>
-    <input type="text" id="name">
-
-    <label for="product">Product</label>
-    <select id="product">
-      <option>Select product</option>
-    </select>
-
-    <label for="size">Size</label>
-    <select id="size">
-      <option>Select product first</option>
-    </select>
-
-    <label for="quantity">Quantity</label>
-    <select id="quantity">
-      <option>1</option>
-    </select>
-
-    <button type="button">Submit Order</button>
-  </div>
-</section>
-</form>
-
-
-<script src="script.js"></script>
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        EquipDrop provides affordable and accessible PPE to students while supporting more responsible use of resources.
+        The platform is designed to reduce unnecessary waste by redistributing PPE that is still usable within an educational setting.
+      </p>
+      <p>
+        The system combines a digital ordering page with a physical locker unit. Once PPE is selected, the user can collect it
+        from a controlled locker compartment using an access code.
+      </p>
     </section>
 
-   <section id="contact" class="card">
-  <h2>Contact</h2>
+    <section id="how-it-works">
+      <h2>How It Works</h2>
+      <ol>
+        <li>Select the PPE item you need from the catalogue.</li>
+        <li>Choose the correct size and quantity.</li>
+        <li>Submit your order through the webpage.</li>
+        <li>An access code is assigned to the correct locker compartment.</li>
+        <li>Enter the code on the keypad to open the locker and collect your PPE.</li>
+      </ol>
+    </section>
 
-  <form id="contact-form">
-    <input type="text" name="from_name" placeholder="Your name" required>
-    <br><br>
-    <input type="email" name="reply_to" placeholder="Your email" required>
-    <br><br>
-    <textarea name="message" placeholder="Your message" required></textarea>
-    <br><br>
-    <button type="submit">Send</button>
-  </form>
+    <section id="catalogue">
+      <h2>Catalogue</h2>
+      <p>Select the PPE item required for your workshop, lab or practical learning activity.</p>
 
-  <p id="status"></p>
-</section>
+      <div class="catalogue-row">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Your name">
 
-</div>
+        <label for="product">Product</label>
+        <select id="product">
+          <option>Select product</option>
+          <option>Hard hat</option>
+          <option>Safety glasses</option>
+          <option>Safety jacket</option>
+          <option>Protective trousers</option>
+          <option>Safety boots</option>
+        </select>
+
+        <label for="size">Size</label>
+        <select id="size">
+          <option>Select size</option>
+          <option>One size</option>
+          <option>Small</option>
+          <option>Medium</option>
+          <option>Large</option>
+          <option>UK 5</option>
+          <option>UK 6</option>
+          <option>UK 7</option>
+          <option>UK 8</option>
+          <option>UK 9</option>
+          <option>UK 10</option>
+          <option>UK 11</option>
+          <option>UK 12</option>
+        </select>
+
+        <label for="quantity">Quantity</label>
+        <select id="quantity">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+        </select>
+
+        <button type="button">Submit Order</button>
+      </div>
+    </section>
+
+    <section id="sustainability">
+      <h2>Sustainability</h2>
+      <p>
+        This project supports SDG 12: Responsible Consumption and Production. By redistributing PPE instead of allowing it
+        to become waste, EquipDrop helps extend the lifecycle of materials and supports circular economy thinking.
+      </p>
+      <p>
+        The system encourages students to take only what they need, reuse available resources and think more carefully about
+        waste in practical learning environments.
+      </p>
+    </section>
+
+    <section id="available-ppe">
+      <h2>Available PPE</h2>
+      <ul>
+        <li>Hard hats</li>
+        <li>Safety glasses</li>
+        <li>Safety jackets</li>
+        <li>Protective trousers</li>
+        <li>Safety boots</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+
+      <form id="contact-form">
+        <input type="text" name="from_name" placeholder="Your name" required>
+        <br><br>
+
+        <input type="email" name="reply_to" placeholder="Your email" required>
+        <br><br>
+
+        <textarea name="message" placeholder="Your message" required></textarea>
+        <br><br>
+
+        <button type="submit">Send</button>
+      </form>
+
+      <p id="status"></p>
+    </section>
 
   </main>
 
   <footer>
-    <div class="wrap">© 2026 Clohessy-O'Grady Enterprises. Absolutely no rights reserved.</div>
+    © 2026 Clohessy-O'Grady Enterprises. Absolutely no rights reserved.
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
   <script>
-    function showMessage() {
-      const text = document.getElementById("msg").value.trim();
-      const out = document.getElementById("output");
-      if (!text) {
-        out.textContent = "Please type a message first.";
-        return;
-      }
-      out.textContent = "Received: " + text;
-      document.getElementById("msg").value = "";
-    }
+    emailjs.init("uzd4thwR4Mt8_HT51");
+
+    document.getElementById("contact-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      emailjs.sendForm("service_oneeahe", "template_MY_TEMPLATE_ID", this)
+        .then(function() {
+          document.getElementById("status").innerText = "Message sent successfully!";
+          document.getElementById("contact-form").reset();
+        }, function() {
+          document.getElementById("status").innerText = "Failed to send message.";
+        });
+    });
   </script>
+
   <script src="script.js"></script>
+
 </body>
-  <script type="text/javascript"
-  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-<script type="text/javascript">
-  emailjs.init('uzd4thwR4Mt8_HT51')
-</script>
 </html>
-
